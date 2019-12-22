@@ -11,8 +11,8 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="format-detection" content="telephone=no">
     <link rel="icon" href="/favicon.ico">
-    <link rel="stylesheet" href="/resources/layui/css/layui.css" media="all" />
-    <link rel="stylesheet" href="/resources/css/public.css" media="all" />
+    <link rel="stylesheet" href="/resources/layui/css/layui.css" media="all"/>
+    <link rel="stylesheet" href="/resources/css/public.css" media="all"/>
 </head>
 <body class="childrenBody">
 <!-- 查询条件开始 -->
@@ -25,32 +25,38 @@
             <div class="layui-inline">
                 <label class="layui-form-label">登陆名称</label>
                 <div class="layui-input-inline">
-                    <input type="text" name="loginname"  autocomplete="off" class="layui-input">
+                    <input type="text" name="loginname" autocomplete="off" class="layui-input">
                 </div>
             </div>
             <div class="layui-inline">
                 <label class="layui-form-label">登陆地址</label>
                 <div class="layui-input-inline">
-                    <input type="text" name="loginip"    autocomplete="off" class="layui-input">
+                    <input type="text" name="loginip" autocomplete="off" class="layui-input">
                 </div>
             </div>
             <div class="layui-inline">
                 <label class="layui-form-label">开始时间</label>
                 <div class="layui-input-inline">
-                    <input type="tel" name="startTime" id="startTime" readonly="readonly" placeholder="yyyy-MM-dd HH:mm:ss" class="layui-input">
+                    <input type="tel" name="startTime" id="startTime" readonly="readonly"
+                           placeholder="yyyy-MM-dd HH:mm:ss" class="layui-input">
                 </div>
             </div>
             <div class="layui-inline">
                 <label class="layui-form-label">结束时间</label>
                 <div class="layui-input-inline">
-                    <input type="tel" name="endTime"  id="endTime"  readonly="readonly" placeholder="yyyy-MM-dd HH:mm:ss" class="layui-input">
+                    <input type="tel" name="endTime" id="endTime" readonly="readonly" placeholder="yyyy-MM-dd HH:mm:ss"
+                           class="layui-input">
                 </div>
             </div>
         </div>
         <div class="layui-form-item">
             <div class="layui-input-block" style="text-align: center; float: right; margin-right: 25px">
-                <button type="button" class="layui-btn" lay-submit="" lay-filter="doSearch"><span class="layui-icon layui-icon-search"></span>查询</button>
-                <button type="reset" class="layui-btn layui-btn-normal"><span class="layui-icon layui-icon-refresh-1"></span>重置</button>
+                <button type="button" class="layui-btn" lay-submit="" lay-filter="doSearch"><span
+                        class="layui-icon layui-icon-search"></span>查询
+                </button>
+                <button type="reset" class="layui-btn layui-btn-normal"><span
+                        class="layui-icon layui-icon-refresh-1"></span>重置
+                </button>
             </div>
         </div>
     </form>
@@ -61,15 +67,19 @@
 <!-- 数据表格开始 -->
 <div>
     <table class="layui-hide" id="loginfoTable" lay-filter="loginfoTable"></table>
-        <div id="loginfoToolBar" style="display: none;">
-            <div style="margin-left: 35px">
-                <button type="button" lay-event="batchDelete" class="layui-btn layui-btn-sm layui-btn-danger"><span class="layui-icon layui-icon-delete"></span>批量删除</button>
-            </div>
-
+    <div id="loginfoToolBar" style="display: none;">
+        <div style="margin-left: 35px">
+            <button type="button" lay-event="batchDelete" class="layui-btn layui-btn-sm layui-btn-danger"><span
+                    class="layui-icon layui-icon-delete"></span>批量删除
+            </button>
         </div>
 
+    </div>
+
     <div id="loginfoRowBar" style="display: none;">
-        <button type="button" lay-event="delete" class="layui-btn layui-btn-sm layui-btn-warm"><span class="layui-icon layui-icon-delete"></span>删除</button>
+        <button type="button" lay-event="delete" class="layui-btn layui-btn-sm layui-btn-warm"><span
+                class="layui-icon layui-icon-delete"></span>删除
+        </button>
     </div>
 </div>
 
@@ -77,12 +87,10 @@
 <!-- 数据表格结束 -->
 
 
-
-
 <script type="text/javascript" src="/resources/layui/layui.js"></script>
 
 <script type="text/javascript">
-    layui.use(['jquery','form','table','layer','laydate'],function(){
+    layui.use(['jquery', 'form', 'table', 'layer', 'laydate'], function () {
         var $ = layui.jquery,
             form = layui.form
             , table = layui.table
@@ -90,22 +98,22 @@
             , laydate = layui.laydate;
         //初始化时间选择器
         laydate.render({
-            elem:'#startTime',
-            type:'datetime'
+            elem: '#startTime',
+            type: 'datetime'
         });
         laydate.render({
-            elem:'#endTime',
-            type:'datetime'
+            elem: '#endTime',
+            type: 'datetime'
         });
 
         //加载 数据
-        var tableIns=table.render({
+        var tableIns = table.render({
             elem: '#loginfoTable'
             , url: '/loginfo/loadAllLoginfo'
             , toolbar: '#loginfoToolBar' //开启头部工具栏，并为其绑定左侧模板
             , title: '用户登陆日志数据表'
             , height: 'full-220'
-            ,page: true
+            , page: true
             , cols: [ [
                 {type: 'checkbox', fixed: 'left'}
                 , {field: 'id', title: 'ID', align: 'center'}
@@ -117,38 +125,40 @@
         });
 
         //模糊查询
-        form.on("submit(doSearch)",function(data){
+        form.on("submit(doSearch)", function (data) {
             tableIns.reload({
-                where:data.field,
-                page:{
-                    curr:1
+                where: data.field,
+                page: {
+                    curr: 1
                 }
             });
             return false;
         });
 
         //监听工具条的事件
-        table.on("toolbar(loginfoTable)",function(obj){
-            switch(obj.event){
+        table.on("toolbar(loginfoTable)", function (obj) {
+            switch (obj.event) {
                 case 'batchDelete':
                     batchDelete();
                     break;
-            };
+            }
+            ;
         });
 
         //监听行工具行的事件
-        table.on("tool(loginfoTable)",function(obj){
+        table.on("tool(loginfoTable)", function (obj) {
             var data = obj.data; //获得当前行数据
-            switch(obj.event){
+            switch (obj.event) {
                 case 'delete':
                     deleteInfo(data);
                     break;
-            };
+            }
+            ;
         });
 
         //删除
-        function deleteInfo(data){
-            layer.confirm('你确定要删除这条数据吗?', {icon: 3, title:'提示'}, function(index){
+        function deleteInfo(data) {
+            layer.confirm('你确定要删除这条数据吗?', {icon: 3, title: '提示'}, function (index) {
                 $.post("/loginfo/deleteLoginfo", {id: data.id}, function (res) {
                     if (res.code == 200) {
                         tableIns.reload();
@@ -160,7 +170,7 @@
         }
 
         //批量删除
-        function  batchDelete(){
+        function batchDelete() {
             //得到选中行
             var checkStatus = table.checkStatus('loginfoTable');
             var dataLength = checkStatus.data.length;

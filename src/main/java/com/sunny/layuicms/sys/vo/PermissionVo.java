@@ -15,6 +15,6 @@ import lombok.EqualsAndHashCode;
 public class PermissionVo extends Permission {
 
     private static final long serialVersionUID = -6609750223183785356L;
-
-
+    private Integer page = 1;
+    private Integer limit = 10;
 }

@@ -11,8 +11,8 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="format-detection" content="telephone=no">
     <link rel="icon" href="/favicon.ico">
-    <link rel="stylesheet" href="/resources/layui/css/layui.css" media="all" />
-    <link rel="stylesheet" href="/resources/css/public.css" media="all" />
+    <link rel="stylesheet" href="/resources/layui/css/layui.css" media="all"/>
+    <link rel="stylesheet" href="/resources/css/public.css" media="all"/>
 </head>
 <body class="childrenBody">
 <!-- 查询条件开始 -->
@@ -25,32 +25,38 @@
             <div class="layui-inline">
                 <label class="layui-form-label">标题</label>
                 <div class="layui-input-inline">
-                    <input type="text" name="title"  autocomplete="off" class="layui-input">
+                    <input type="text" name="title" autocomplete="off" class="layui-input">
                 </div>
             </div>
             <div class="layui-inline">
                 <label class="layui-form-label">发布人</label>
                 <div class="layui-input-inline">
-                    <input type="text" name="opername"    autocomplete="off" class="layui-input">
+                    <input type="text" name="opername" autocomplete="off" class="layui-input">
                 </div>
             </div>
             <div class="layui-inline">
                 <label class="layui-form-label">开始时间</label>
                 <div class="layui-input-inline">
-                    <input type="tel" name="startTime" id="startTime" readonly="readonly" placeholder="yyyy-MM-dd HH:mm:ss" class="layui-input">
+                    <input type="tel" name="startTime" id="startTime" readonly="readonly"
+                           placeholder="yyyy-MM-dd HH:mm:ss" class="layui-input">
                 </div>
             </div>
             <div class="layui-inline">
                 <label class="layui-form-label">结束时间</label>
                 <div class="layui-input-inline">
-                    <input type="tel" name="endTime"  id="endTime"  readonly="readonly" placeholder="yyyy-MM-dd HH:mm:ss" class="layui-input">
+                    <input type="tel" name="endTime" id="endTime" readonly="readonly" placeholder="yyyy-MM-dd HH:mm:ss"
+                           class="layui-input">
                 </div>
             </div>
         </div>
-        <div class="layui-form-item" >
+        <div class="layui-form-item">
             <div class="layui-input-block" style="text-align: center; float: right; margin-right: 25px">
-                <button type="button" class="layui-btn" lay-submit="" lay-filter="doSearch"><span class="layui-icon layui-icon-search"></span>查询</button>
-                <button type="reset" class="layui-btn layui-btn-normal"><span class="layui-icon layui-icon-refresh-1"></span>重置</button>
+                <button type="button" class="layui-btn" lay-submit="" lay-filter="doSearch"><span
+                        class="layui-icon layui-icon-search"></span>查询
+                </button>
+                <button type="reset" class="layui-btn layui-btn-normal"><span
+                        class="layui-icon layui-icon-refresh-1"></span>重置
+                </button>
             </div>
         </div>
     </form>
@@ -64,16 +70,24 @@
     <div id="loginfoToolBar" style="display: none;">
         <div style="margin-left: 35px">
             <button type="button" lay-event="add" class="layui-btn layui-btn-sm layui-btn-primary">
-                <span class="layui-icon layui-icon-add-1"></span>添加公告</button>
+                <span class="layui-icon layui-icon-add-1"></span>添加公告
+            </button>
             <button type="button" lay-event="batchDelete" class="layui-btn layui-btn-sm layui-btn-danger">
-                <span class="layui-icon layui-icon-delete"></span>批量删除</button>
+                <span class="layui-icon layui-icon-delete"></span>批量删除
+            </button>
         </div>
     </div>
 
     <div id="loginfoRowBar" style="display: none;">
-        <button type="button" lay-event="show" class="layui-btn layui-btn-sm layui-btn-primary"><span class="layui-icon layui-icon-down"></span>查看</button>
-        <button type="button" lay-event="delete" class="layui-btn layui-btn-sm layui-btn-warm"><span class="layui-icon layui-icon-delete"></span>删除</button>
-        <button type="button" lay-event="update" class="layui-btn layui-btn-sm"><span class="layui-icon layui-icon-edit"></span>编辑</button>
+        <button type="button" lay-event="show" class="layui-btn layui-btn-sm layui-btn-primary"><span
+                class="layui-icon layui-icon-down"></span>查看
+        </button>
+        <button type="button" lay-event="delete" class="layui-btn layui-btn-sm layui-btn-warm"><span
+                class="layui-icon layui-icon-delete"></span>删除
+        </button>
+        <button type="button" lay-event="update" class="layui-btn layui-btn-sm"><span
+                class="layui-icon layui-icon-edit"></span>编辑
+        </button>
     </div>
 </div>
 <!-- 数据表格结束 -->
@@ -84,7 +98,8 @@
             <label class="layui-form-label">公告标题</label>
             <div class="layui-input-block">
                 <input type="hidden" name="id">
-                <input type="text" name="title" id="title" autocomplete="off" placeholder="请输入标题" lay-verify="required" class="layui-input">
+                <input type="text" name="title" id="title" autocomplete="off" placeholder="请输入标题" lay-verify="required"
+                       class="layui-input">
             </div>
         </div>
         <div class="layui-form-item">
@@ -95,8 +110,12 @@
             </div>
         </div>
         <div class="layui-form-item" style="text-align: center">
-            <button type="button" class="layui-btn" lay-filter="doSubmit" id="doSubmit"><span class="layui-icon layui-icon-add-circle"></span>提交</button>
-            <button type="reset" class="layui-btn layui-btn-normal"><span class="layui-icon layui-icon-refresh-1"></span>重置</button>
+            <button type="button" class="layui-btn" lay-filter="doSubmit" id="doSubmit"><span
+                    class="layui-icon layui-icon-add-circle"></span>提交
+            </button>
+            <button type="reset" class="layui-btn layui-btn-normal"><span
+                    class="layui-icon layui-icon-refresh-1"></span>重置
+            </button>
         </div>
     </form>
 </div>
@@ -239,33 +258,34 @@
         }
 
         //弹出查看层
-        function showNotice(data){
+        function showNotice(data) {
             layer.open({
                 type: 1
-                , area:['500px','400px']
-                ,content: $("#showNoticeDiv")
-                ,btn: '关闭'
-                ,btnAlign: 'c' //按钮居中
-                , success:function(){
+                , area: ['500px', '400px']
+                , content: $("#showNoticeDiv")
+                , btn: '关闭'
+                , btnAlign: 'c' //按钮居中
+                , success: function () {
                     $("#show_title").html(data.title);
                     $("#show_opername").html(data.opername);
                     $("#show_createtime").html(data.createtime);
                     $("#show_content").html(data.content);
                 }
             });
-          /*  mainLayer=layer.open({
-                type:1,
-                content:$("#showNoticeDiv"),
-                area:['500px','400px'],
-                title:'查看公告',
-                success:function(){
-                    $("#show_title").html(data.title);
-                    $("#show_opername").html(data.opername);
-                    $("#show_createtime").html(data.createtime);
-                    $("#show_content").html(data.content);
-                }
-            });*/
+            /*  mainLayer=layer.open({
+                  type:1,
+                  content:$("#showNoticeDiv"),
+                  area:['500px','400px'],
+                  title:'查看公告',
+                  success:function(){
+                      $("#show_title").html(data.title);
+                      $("#show_opername").html(data.opername);
+                      $("#show_createtime").html(data.createtime);
+                      $("#show_content").html(data.content);
+                  }
+              });*/
         }
+
         /*
         * 添加和修改的提交
         * url是全局变量，当打开修改或添加弹出层的时候赋予不同的值，Submit方法统一调用

@@ -32,7 +32,7 @@ public class TreeNode {
      * 导航栏小图标
      */
     private String icon;
-    private String href ;
+    private String href;
     private Boolean spread;
 
     /**
@@ -43,6 +43,7 @@ public class TreeNode {
     /**
      * 左边导航树构造器：每一个节点都包含下下面的元素，
      * 子节点是需要自己组装的
+     *
      * @param id
      * @param pid
      * @param title
@@ -61,6 +62,7 @@ public class TreeNode {
 
     /**
      * dtree的数据格式
+     *
      * @param id
      * @param pid
      * @param title

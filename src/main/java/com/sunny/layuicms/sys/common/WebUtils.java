@@ -17,9 +17,10 @@ public class WebUtils {
 
     /**
      * 获取Request对象
-     *
+     * <p>
      * RequestContextHolder Request容器的上下文获得者，属于SpringMVC中的组件
      * Request一般是作用在controller层中
+     *
      * @return
      */
     public static HttpServletRequest getHttpServletRequest() {

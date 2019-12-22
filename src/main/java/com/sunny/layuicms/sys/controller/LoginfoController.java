@@ -35,6 +35,7 @@ public class LoginfoController {
 
     /**
      * 全查询
+     *
      * @param loginfoVo
      * @return
      */
@@ -43,8 +44,8 @@ public class LoginfoController {
         IPage<Loginfo> page = new Page<>(loginfoVo.getPage(), loginfoVo.getLimit());
         QueryWrapper<Loginfo> queryWrapper = new QueryWrapper<>();
         /*
-        * 查询条件： 前台进行条件查询
-        * */
+         * 查询条件： 前台进行条件查询
+         * */
         queryWrapper.like(StringUtils.isNotBlank(loginfoVo.getLoginname()), "loginname", loginfoVo.getLoginname());
         queryWrapper.like(StringUtils.isNotBlank(loginfoVo.getLoginip()), "loginip", loginfoVo.getLoginip());
         queryWrapper.ge(loginfoVo.getStartTime() != null, "logintime", loginfoVo.getStartTime());
@@ -67,6 +68,7 @@ public class LoginfoController {
             return ResultDTO.DELETE_FAILED;
         }
     }
+
     /**
      * 批量删除
      */

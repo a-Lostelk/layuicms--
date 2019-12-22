@@ -27,13 +27,13 @@ import java.util.Map;
  *
  * @Author: fang
  * @Date: 2019/11/7
- *
+ * <p>
  * shiro配置文件
  * 作为Spring容器的组件，在YML文件中配置
  */
 @Data
 @Configuration
-@ConditionalOnWebApplication(type = ConditionalOnWebApplication.Type.SERVLET )
+@ConditionalOnWebApplication(type = ConditionalOnWebApplication.Type.SERVLET)
 @ConditionalOnClass(value = SecurityManager.class)
 @ConfigurationProperties(prefix = "shiro")
 public class ShiroAutoConfiguration {
@@ -60,6 +60,7 @@ public class ShiroAutoConfiguration {
     /**
      * 密码匹配器
      * 设置加密方式和散列次数
+     *
      * @return
      */
     @Bean("credentialsMatcher")
@@ -72,6 +73,7 @@ public class ShiroAutoConfiguration {
 
     /**
      * userReam
+     *
      * @param credentialsMatcher 注册匹配器
      * @return
      */
@@ -84,6 +86,7 @@ public class ShiroAutoConfiguration {
 
     /**
      * 配置SecurityManager
+     *
      * @param userRealm 注入UserRealm
      * @return
      */
@@ -96,6 +99,7 @@ public class ShiroAutoConfiguration {
 
     /**
      * shiro内置过滤器：anon（无需认证）authc（必须认证才能访问）
+     *
      * @param securityManager
      * @return
      */
@@ -132,6 +136,7 @@ public class ShiroAutoConfiguration {
 
     /**
      * shiro注册过滤器
+     *
      * @return
      */
     @Bean
@@ -147,13 +152,14 @@ public class ShiroAutoConfiguration {
 
     /**
      * 加入注解的使用
-     *
-     *
+     * <p>
+     * <p>
      * 开启shiro注解支持,相当于在web.xml文件中开启注解
      * <bean>
      * <bean class="org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor">
      * <property name="securityManager" ref="securityManager"/>
      * </bean>
+     *
      * @param securityManager
      * @return
      */
@@ -166,6 +172,7 @@ public class ShiroAutoConfiguration {
 
     /**
      * 利用SpringAOP创建代理
+     *
      * @return
      */
     @Bean
@@ -177,6 +184,7 @@ public class ShiroAutoConfiguration {
 
     /**
      * shiro和thymeleaf整合，shiro可以控制Thymeleaf的权限控制
+     *
      * @return
      */
     @Bean(name = SHIRO_DIALECT)

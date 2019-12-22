@@ -3,9 +3,11 @@ package com.sunny.layuicms.sys.mapper;
 import com.sunny.layuicms.sys.entity.Dept;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
+import java.util.List;
+
 /**
  * <p>
- *  Mapper 接口
+ * Mapper 接口
  * </p>
  *
  * @author sunny
@@ -13,4 +15,10 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  */
 public interface DeptMapper extends BaseMapper<Dept> {
 
+    /**
+     * 查询最大的ordernum
+     *
+     * @return
+     */
+    List<Dept> selectMaxOrderNum();
 }

@@ -26,6 +26,7 @@ public class DataGridView {
         this.count = count;
         this.data = data;
     }
+
     public DataGridView(Object date) {
         super();
         this.data = date;

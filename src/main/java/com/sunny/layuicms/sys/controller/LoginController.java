@@ -22,7 +22,7 @@ import java.util.Date;
  *
  * @Author: fang
  * @Date: 2019/11/7
- *
+ * <p>
  * 登录控制器
  */
 @RestController
@@ -40,6 +40,7 @@ public class LoginController {
         try {
             subject.login(token);
             ActiverUser activerUser = (ActiverUser) subject.getPrincipal();
+            System.out.println(activerUser);
             //写入session
             WebUtils.getHttpSession().setAttribute("user", activerUser.getUser());
             /*记录登录日志，名称(姓名+登录级别)，ip，时间*/
@@ -47,12 +48,12 @@ public class LoginController {
             loginfo.setLoginname(activerUser.getUser().getName() + "-" + activerUser.getUser().getLoginname());
             loginfo.setLoginip(WebUtils.getHttpServletRequest().getRemoteAddr());
             loginfo.setLogintime(new Date());
-//            loginfoService.save(loginfo);
-            System.out.println("登录成功----------->" + ResultDTO.LOGIN_SUCCESS);
+            loginfoService.save(loginfo);
+            System.out.println("登录成功:" + ResultDTO.LOGIN_SUCCESS);
             return ResultDTO.LOGIN_SUCCESS;
         } catch (AuthenticationException e) {
             e.printStackTrace();
-            System.out.println("用户名或密码错误------------>" + ResultDTO.LOGIN_FAILED);
+            System.err.println("用户名或密码错误" + ResultDTO.LOGIN_FAILED);
             return ResultDTO.LOGIN_FAILED;
         }
     }
